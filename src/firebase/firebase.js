@@ -10,7 +10,6 @@ const auth = getAuth(app);
 * using mail and passw
 * @param {string} mail and pass
 * returns
-*MAAAAAAAAAAAAAAAAAAAAAAAAAN
 * email var takes user mail adress from mail input
 * pass -> users passw from input
 *  */

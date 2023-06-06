@@ -9,7 +9,7 @@ function App() {
         <h1 style={{
             textAlign: "center",
             marginTop: "100px",
-        }}>Authssssssssssssss</h1>
+        }}>Auth</h1>
 
         <Routes>
         <Route path="/" element={<h2>Home</h2>}/>
