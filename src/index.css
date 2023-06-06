@@ -11,6 +11,8 @@ body{
   font-family: 'Poppins', serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #243b55;
+
 }
 
 h1{font-size: 3.5rem;line-height: 1.2;}
