@@ -1,16 +1,23 @@
 import React, {useState} from 'react'
 import "./login.css";
-import {createNewUser} from "../../firebase/firebase";
+import {createNewUser, loginUser} from "../../firebase/firebase";
 
 const Login = () => {
 
    const [email, setEmail] = useState(""); //will store user mail from mail input
    const [password, setPassword] = useState("");
 
-   const loginButton = async () => {
+   //create new user
+   const signUpButton = async () => {
       const user = await createNewUser(email, password);
       console.log("user: ", user);
    };
+
+   //login that mf
+    const signInUser = async () => {
+        const user = await loginUser(email, password);
+        console.log("New User: ", user);
+    }
 
     return (
         <>
@@ -54,7 +61,7 @@ const Login = () => {
                     <div className="form__field">
                         <input type="submit"
                                value="Sign In"
-                               onClick={loginButton} href="#"
+                               onClick={signInUser} href="#"
                         />
                     </div>
 

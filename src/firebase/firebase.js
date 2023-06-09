@@ -1,9 +1,8 @@
-import {getAuth, createUserWithEmailAndPassword} from "firebase/auth";
+import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword} from "firebase/auth";
 import {app} from "./init";
 
 
 const auth = getAuth(app);
-
 
 /*
 * createshit method from firebase used to create new user
@@ -14,11 +13,11 @@ const auth = getAuth(app);
 * pass -> users passw from input
 *  */
 
-export async function createNewUser(email, password){
+export async function createNewUser(email, password) {
 
     //adaugam si o validare
-    if(!email) throw new Error("email is empty");
-    if(!password) throw new Error("password is empty");
+    if (!email) throw new Error("email is empty");
+    if (!password) throw new Error("password is empty");
     const userCredentials = await createUserWithEmailAndPassword(
         auth,
         email,
@@ -27,4 +26,18 @@ export async function createNewUser(email, password){
 
     return userCredentials; //dupa success login returns mail, useerid, token etc
 
+}
+
+/*
+* verificam daca userul este in firebase pentru login
+* login existing user
+* */
+
+export async function loginUser(email, password){
+    //validation
+    if (!email) throw new Error("email is empty");
+    if (!password) throw new Error("password is empty");
+
+    const user = await signInWithEmailAndPassword(auth, email, password);
+    return user;
 }
