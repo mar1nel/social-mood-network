@@ -1,6 +1,8 @@
 import React, {useState} from 'react'
 import "./login.css";
+import {Link} from "react-router-dom";
 import {createNewUser, loginUser} from "../../firebase/firebase";
+import SignUp from "./signup";
 
 const Login = () => {
 
@@ -9,6 +11,7 @@ const Login = () => {
 
    //create new user
    const signUpButton = async () => {
+
       const user = await createNewUser(email, password);
       console.log("user: ", user);
    };
@@ -23,6 +26,11 @@ const Login = () => {
         <>
             <div className="align">
             <div className="grid">
+
+                <h1 style={{
+                    textAlign: "center",
+                    marginTop: "100px",
+                }}>Login</h1>
 
                 <form action="https://httpbin.org/post" method="POST" className="form login">
 
@@ -39,7 +47,7 @@ const Login = () => {
                                placeholder="Email"
                                required autoComplete={false}
                                onChange={(e)=> (setEmail(e.target.value))}/>
-                        {/*//this will ge emal and store it to mail state/>*/}
+                        {/*//this will ge email and store it to mail state/>*/}
                     </div>
 
                     <div className="form__field">
@@ -60,14 +68,14 @@ const Login = () => {
 
                     <div className="form__field">
                         <input type="submit"
-                               value="Sign In"
-                               onClick={signInUser} href="#"
+                               value="Log In"
+                               onClick={signUpButton} href="#"
                         />
                     </div>
 
                 </form>
 
-                <p className="text--center">Not a member? <a href="#">Sign up now</a>
+                <p className="text--center">Not a member? <Link to="/signup">Sign up now</Link>
                     <svg className="icon">
                         <use href="#icon-arrow-right"></use>
                     </svg>
