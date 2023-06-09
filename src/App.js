@@ -1,6 +1,6 @@
 import './App.css';
 import {Routes, Route} from "react-router-dom";
-import Login from "./components/login/login";
+import Signin from "./components/login/signin";
 import SignUp from "./components/login/signup";
 
 function App() {
@@ -10,13 +10,13 @@ function App() {
         <h1 style={{
             textAlign: "center",
             marginTop: "100px",
-        }}>Auth</h1>
+        }}>❤Auth❤</h1>
 
         {/*LAST TEST*/}
 
         <Routes>
         <Route path="/" element={<h2>Home</h2>}/>
-        <Route path="login" element={<Login/>}/>
+        <Route path="signin" element={<Signin/>}/>
         <Route path="signup" element={<SignUp/>}/>
       </Routes>
 
