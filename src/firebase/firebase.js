@@ -1,42 +1,38 @@
 import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword} from "firebase/auth";
-import {app} from "./init";
-
+import { app } from "./init";
 
 const auth = getAuth(app);
 
 /*
-* createshit method from firebase used to create new user
-* using mail and passw
-* @param {string} mail and pass
-* returns
-* email var takes user mail adress from mail input
-* pass -> users passw from input
-*  */
+ * `createUserWithEmailAndPassword()` method from firebase auth is used to create new user
+ * using email and password
+ * @param {string} email
+ * @param {string} password
+ * @returns
+ * Email -> email variable takes users email address from email input
+ * password -> password variable takes user password from password input
+ */
 
 export async function createNewUser(email, password) {
+    if (!email) throw new Error("Email cannot be empty");
+    if (!password) throw new Error("Password cannot be empty");
 
-    //adaugam si o validare
-    if (!email) throw new Error("email is empty");
-    if (!password) throw new Error("password is empty");
-    const userCredentials = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password
-    );
-
-    return userCredentials; //dupa success login returns mail, useerid, token etc
-
+    const userCredentials = await createUserWithEmailAndPassword(auth, email, password);
+    //after successful login returns info like email, etc
+    return userCredentials;
 }
 
-/*
-* verificam daca userul este in firebase pentru login
-* login existing user
-* */
 
-export async function loginUser(email, password){
-    //validation
-    if (!email) throw new Error("email is empty");
-    if (!password) throw new Error("password is empty");
+/*
+ * If user already exists in firebase and want to login.
+ * In last video we have seen how to create user "signup"
+ * In this video we will see how to login existing user.
+ */
+
+export async function signupCoolUser(email, password) {
+    // let's add some validation
+    if (!email) throw new Error("Wrong Email!");
+    if (!password) throw new Error("Wrong password!");
 
     const user = await signInWithEmailAndPassword(auth, email, password);
     return user;

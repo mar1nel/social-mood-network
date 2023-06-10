@@ -7,11 +7,6 @@ function App() {
   return (
     <div className="App">
 
-        <h1 style={{
-            textAlign: "center",
-            marginTop: "100px",
-        }}>❤Auth❤</h1>
-
         {/*LAST TEST*/}
 
         <Routes>

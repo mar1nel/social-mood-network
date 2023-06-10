@@ -1,17 +1,34 @@
 import React, {useState} from 'react'
-import {createNewUser, loginUser} from "../../firebase/firebase";
-import {Link} from "react-router-dom";
+import {signupCoolUser} from "../../firebase/firebase";
+import {Link, useNavigate} from "react-router-dom";
+import {wait} from "@testing-library/user-event/dist/utils";
+
+/*
+* createshit method from firebase used to create new user
+* using mail and passw
+* @param {string} mail and pass
+* returns
+* email var takes user mail adress from mail input
+* pass -> users passw from input
+*  */
 
 const SignIn = () => {
-
-    const [email, setEmail] = useState(""); //will store user mail from mail input
+    const [email, setEmail] = useState(""); //aici store users info => email
     const [password, setPassword] = useState("");
+    const navigate = useNavigate();
+
 
     //login that mf
     const signInUser = async () => {
-        const user = await loginUser(email, password);
-        console.log("New User: ", user);
-    }
+        try {
+            const user = await signupCoolUser(email, password);
+            console.log("User: ", user);
+            navigate("/home"); // Redirect to the home page
+        } catch (error) {
+            console.error("Error signing in: ", error);
+        }
+    };
+
 
     return (
         <>
@@ -21,7 +38,13 @@ const SignIn = () => {
                         <h1 style={{
                             textAlign: "center",
                             marginTop: "100px",
-                        }}>Sign In (intra cont daca ii corect)</h1>
+                        }}>Auth</h1>
+
+                        <h1 style={{
+                            textAlign: "center",
+                            marginTop: "100px",
+                            paddingBottom: "30px"
+                        }}>SignIn</h1>
 
                         <form className="form login">
 
@@ -36,7 +59,6 @@ const SignIn = () => {
                                     type="text" name="username"
                                     className="form__input"
                                     placeholder="Email"
-                                    required autoComplete={false}
                                     onChange={(e)=> (setEmail(e.target.value))}/>
                                 {/*//this will ge email and store it to mail state/>*/}
                             </div>
@@ -48,7 +70,6 @@ const SignIn = () => {
                                     </svg>
                                     <span className="hidden">Password</span></label>
                                 <input id="login__password"
-                                       required autoComplete={false}
                                        onChange={(e)=> (setPassword(e.target.value))}
                                        type="password"
                                        name="password"
@@ -60,13 +81,16 @@ const SignIn = () => {
                             <div className="form__field">
                                 <input type="submit"
                                        value="Sign In"
-                                       onClick={signInUser} href="#"
+                                       onClick={(e) => {
+                                           e.preventDefault();
+                                           signInUser();
+                                       }}
                                 />
                             </div>
 
                         </form>
 
-                        <p className="text--center">Don't have an account? <Link to="/signin">Sign Up </Link>
+                        <p className="text--center">Don't have an account? <Link to="/signup">Sign Up </Link>
                             <svg className="icon">
                                 <use href="#icon-arrow-right"></use>
                             </svg>
