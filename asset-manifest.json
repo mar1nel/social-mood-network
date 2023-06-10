@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/social-mood-network/static/css/main.68b8486b.css",
+    "main.js": "/social-mood-network/static/js/main.e67aefc3.js",
+    "index.html": "/social-mood-network/index.html",
+    "main.68b8486b.css.map": "/social-mood-network/static/css/main.68b8486b.css.map",
+    "main.e67aefc3.js.map": "/social-mood-network/static/js/main.e67aefc3.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.68b8486b.css",
+    "static/js/main.e67aefc3.js"
+  ]
+}
