@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import {signupCoolUser} from "../../firebase/firebase";
 import {Link, useNavigate} from "react-router-dom";
+import './signin.css';
 import {wait} from "@testing-library/user-event/dist/utils";
 
 /*
@@ -23,7 +24,7 @@ const SignIn = () => {
         try {
             const user = await signupCoolUser(email, password);
             console.log("User: ", user);
-            navigate("/home"); // Redirect to the home page
+            navigate("/homepage"); // Redirect to the home page
         } catch (error) {
             console.error("Error signing in: ", error);
         }

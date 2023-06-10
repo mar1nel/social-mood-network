@@ -1,0 +1,48 @@
+body {
+    display: flex;
+}
+
+.home {
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.step-one {
+    /*padding-bottom: 20px;*/
+    z-index: 1;
+}
+
+.step1wrapper {
+    /*grid-row: auto;*/
+    /*margin-left: -10px;*/
+    align-items: center;
+    display: flex;
+    flex-grow: 2;
+    justify-content: flex-start;
+    padding: 0px 0px;
+}
+
+.hidder2 {
+    position: relative;
+    /*top: 0;*/
+    /*right: 0;*/
+    height: 150px;
+    width: 70px;
+    margin-left: -50px;
+    z-index: 10;
+    background: rgb(20, 20, 20);
+    /*background: linear-gradient(90deg, rgb(20, 20, 20, 0.8) 0%, rgb(20, 20, 20) 100%);*/
+    /*box-shadow: -10px 0px 50px rgb(48, 91, 200);*/
+    filter: blur(10px);
+}
+
+.right-profile{
+
+}
+
+.profile{
+    align-self: flex-end;
+    width: 300px;
+    height: 300px;
+}

@@ -1,7 +1,7 @@
 import {createNewUser} from "../../firebase/firebase";
 import {Link} from "react-router-dom";
 import React, {useState} from 'react'
-import "./signin.css";
+import "./signup.css";
 
 const SignUp = () => {
 
@@ -16,6 +16,7 @@ const SignUp = () => {
 
     return (
         <>
+            <div className="signup-container">
             <div className="align">
                 <div className="grid">
 
@@ -97,7 +98,7 @@ const SignUp = () => {
                 </svg>
 
             </div>
-
+            </div>
         </>
     )
 };
